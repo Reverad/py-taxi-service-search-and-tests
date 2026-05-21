@@ -46,7 +46,10 @@ class ManufacturerModelTest(TestCase):
     def test_manufacturer_ordering(self):
         m_audi = Manufacturer.objects.create(name="Audi", country="Germany")
         m_bmw = Manufacturer.objects.create(name="BMW", country="Germany")
-        m_alfa = Manufacturer.objects.create(name="Alfa Romeo", country="Italy")
+        m_alfa = Manufacturer.objects.create(
+            name="Alfa Romeo",
+            country="Italy"
+        )
 
         manufacturers = list(Manufacturer.objects.all())
 

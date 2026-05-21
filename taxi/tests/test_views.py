@@ -110,7 +110,10 @@ class PrivateCarListViewTests(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertIn("search_form", res.context)
-        self.assertEqual(res.context["search_form"].initial["title"], search_term)
+        self.assertEqual(
+            res.context["search_form"].initial["title"],
+            search_term
+        )
 
 
 class PrivateManufacturerListViewTests(TestCase):
@@ -151,8 +154,14 @@ class PrivateManufacturerListViewTests(TestCase):
 
     def test_manufacturer_search_form_initial_value(self):
         search_term = "BMW"
-        res = self.client.get(MANUFACTURER_LIST_URL, data={"title": search_term})
+        res = self.client.get(
+            MANUFACTURER_LIST_URL,
+            data={"title": search_term}
+        )
 
         self.assertEqual(res.status_code, 200)
         self.assertIn("search_form", res.context)
-        self.assertEqual(res.context["search_form"].initial["title"], search_term)
+        self.assertEqual(
+            res.context["search_form"].initial["title"],
+            search_term
+        )
